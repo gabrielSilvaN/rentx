@@ -1,5 +1,5 @@
 import { getRepository, Repository } from "typeorm";
-import { Specification } from "../../model/Specification";
+import { Specification } from "../../entities/Specification";
 import {
   ISpecificationDTO,
   ISpecificationsRepository,
