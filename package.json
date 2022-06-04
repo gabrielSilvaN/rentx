@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev ./src/server.ts",
+    "dev": "ts-node-dev --inspect=0.0.0.0:9229 ./src/server.ts",
     "build": "tsc --build",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli"
   },
