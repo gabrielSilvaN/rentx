@@ -25,6 +25,6 @@ categoriesRoutes.post(
   importCategoryController.handle
 );
 
-categoriesRoutes.get("/", ensureAuthenticated, listCategoriesController.handle);
+categoriesRoutes.get("/", listCategoriesController.handle);
 
 export { categoriesRoutes };

@@ -19,7 +19,6 @@ app.use(router);
 
 app.use(function (err: Error, req: Request, res: Response, next: NextFunction) {
   if (err instanceof AppError) {
-    console.error(err.stack);
     return res.status(err.statusCode).json({ message: err.message });
   }
 
