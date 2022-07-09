@@ -5,3 +5,5 @@ dist
 .vscode
 
 tmp/avatar/*
+
+coverage

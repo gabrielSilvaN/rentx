@@ -1,13 +1,15 @@
 import "reflect-metadata";
-import 'express-async-errors'
+import "express-async-errors";
 import express, { NextFunction, Request, response, Response } from "express";
 import swaggerUi from "swagger-ui-express";
 import { router } from "./routes";
-import swaggerFile from "./swagger.json";
-import "./database";
+import swaggerFile from "../../../swagger.json";
+import createConnection from "../typeorm";
 
-import "./shared/container";
-import { AppError } from "./errors/AppError";
+import "../../container";
+import { AppError } from "../../errors/AppError";
+
+createConnection();
 
 const app = express();
 
@@ -22,12 +24,10 @@ app.use(function (err: Error, req: Request, res: Response, next: NextFunction) {
     return res.status(err.statusCode).json({ message: err.message });
   }
 
-  return response
-    .status(500)
-    .json({
-      status: "Error",
-      message: `Internal server error - ${err.message}`,
-    });
+  return response.status(500).json({
+    status: "Error",
+    message: `Internal server error - ${err.message}`,
+  });
 });
 
 app.listen(3333, () => {
